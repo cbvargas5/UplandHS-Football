@@ -17,15 +17,15 @@ The purpose of the repository is to provide an idea of how a Gatsby project is s
 ```
 $ git clone git@github.com:robertcoopercode/gatsby-netlify-cms.git
 $ cd gatsby-netlify-cms
-$ yarn
-$ yarn develop
+$ npm i
+$ npm run develop
 ```
 
 To test the CMS locally, you'll to need run a production build of the site:
 
 ```
-$ yarn build
-$ yarn serve
+$ npm run build
+$ npm run serve
 ```
 
 ### Setting up the CMS
