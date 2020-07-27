@@ -1,5 +1,5 @@
 ---
-templateKey: meetup
+templateKey: game
 title: August 2018
 date: 2018-08-14T23:00:00.000Z
 presenters:

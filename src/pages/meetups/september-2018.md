@@ -1,5 +1,5 @@
 ---
-templateKey: meetup
+templateKey: game
 title: September 2018
 date: 2018-09-11T22:00:00.000Z
 presenters:

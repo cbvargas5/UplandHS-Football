@@ -10,10 +10,10 @@ import HeadshotPlaceholder from "../img/headshot-placeholder.svg";
 import CustomLink from "../components/CustomLink";
 import "../styles/home.scss";
 
-export const HomePageTemplate = ({ home, upcomingMeetup = null }) => {
-  const presenters = upcomingMeetup && upcomingMeetup.presenters;
-  const latitude = upcomingMeetup && parseFloat(upcomingMeetup.location.mapsLatitude);
-  const longitude = upcomingMeetup && parseFloat(upcomingMeetup.location.mapsLongitude);
+export const HomePageTemplate = ({ home, upcomingGame = null }) => {
+  const presenters = upcomingGame && upcomingGame.presenters;
+  const latitude = upcomingGame && parseFloat(upcomingGame.location.mapsLatitude);
+  const longitude = upcomingGame && parseFloat(upcomingGame.location.mapsLongitude);
   return (
     <>
       <section className="header">
@@ -24,53 +24,53 @@ export const HomePageTemplate = ({ home, upcomingMeetup = null }) => {
           </h3>
         </div>
       </section>
-      <section className="upcomingMeetup  section">
-        <div className="upcomingMeetup-container  container">
-          <h2 className="upcomingMeetup-title">{home.upcomingMeetupHeading}</h2>
-          {upcomingMeetup ? (
+      <section className="upcomingGame  section">
+        <div className="upcomingGame-container  container">
+          <h2 className="upcomingGame-title">{home.upcomingGameHeading}</h2>
+          {upcomingGame ? (
             <>
-              <p className="upcomingMeetup-detail  upcomingMeetup-detail--date">
-                <span className="upcomingMeetup-detailLabel">Date: </span>
-                {upcomingMeetup.formattedDate}
+              <p className="upcomingGame-detail  upcomingGame-detail--date">
+                <span className="upcomingGame-detailLabel">Date: </span>
+                {upcomingGame.formattedDate}
               </p>
-              <p className="upcomingMeetup-detail  upcomingMeetup-detail--location">
-                <span className="upcomingMeetup-detailLabel">Location: </span>
-                {upcomingMeetup.location.name}
+              <p className="upcomingGame-detail  upcomingGame-detail--location">
+                <span className="upcomingGame-detailLabel">Location: </span>
+                {upcomingGame.location.name}
               </p>
               {presenters.length > 0 && (
-                <div className="upcomingMeetup-presenters">
+                <div className="upcomingGame-presenters">
                   {presenters.map(presenter => (
-                    <div className="upcomingMeetup-presenter" key={presenter.text}>
+                    <div className="upcomingGame-presenter" key={presenter.text}>
                       <img
-                        className="upcomingMeetup-presenterImage"
+                        className="upcomingGame-presenterImage"
                         src={presenter.image ? presenter.image : HeadshotPlaceholder}
                         alt={presenter.image ? presenter.name : "Default headshot placeholder"}
                       />
-                      <span className="upcomingMeetup-presenterName">{presenter.name}</span>
-                      <span className="upcomingMeetup-presenterPresentationTitle">
+                      <span className="upcomingGame-presenterName">{presenter.name}</span>
+                      <span className="upcomingGame-presenterPresentationTitle">
                         {presenter.presentationTitle}
                       </span>
-                      <p className="upcomingMeetup-presenterDescription">{presenter.text}</p>
+                      <p className="upcomingGame-presenterDescription">{presenter.text}</p>
                     </div>
                   ))}
                 </div>
               )}
-              <p className="upcomingMeetup-mapNote">{home.mapsNote}</p>
-              <div className="upcomingMeetup-mapWrapper">
+              <p className="upcomingGame-mapNote">{home.mapsNote}</p>
+              <div className="upcomingGame-mapWrapper">
                 <Map
                   isMarkerShown
                   googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTxauB_VWpo0_8hWELlE3pN59uuHzxD-8&v=3.exp&libraries=geometry,drawing,places"
                   loadingElement={<div style={{ height: `100%` }} />}
                   containerElement={<div style={{ height: `100%` }} />}
                   mapElement={<div style={{ height: `100%` }} />}
-                  link={upcomingMeetup.location.mapsLink}
+                  link={upcomingGame.location.mapsLink}
                   latitude={latitude}
                   longitude={longitude}
                 />
               </div>
             </>
           ) : (
-            <p className="upcomingMeetup-detail">{home.noUpcomingMeetupText}</p>
+            <p className="upcomingGame-detail">{home.noUpcomingGameText}</p>
           )}
         </div>
       </section>
@@ -110,12 +110,12 @@ class HomePage extends React.Component {
     const {
       seo: { title: seoTitle, description: seoDescription, browserTitle },
     } = home;
-    let upcomingMeetup = null;
-    // Find the next meetup that is closest to today
+    let upcomingGame = null;
+    // Find the next game that is closest to today
     data.allMarkdownRemark.edges.every(item => {
-      const { frontmatter: meetup } = item.node;
-      if (isAfter(meetup.rawDate, new Date())) {
-        upcomingMeetup = meetup;
+      const { frontmatter: game } = item.node;
+      if (isAfter(game.rawDate, new Date())) {
+        upcomingGame = game;
         return true;
       } else {
         return false;
@@ -128,7 +128,7 @@ class HomePage extends React.Component {
           <meta name="description" content={seoDescription} />
           <title>{browserTitle}</title>
         </Helmet>
-        <HomePageTemplate home={home} upcomingMeetup={upcomingMeetup} />
+        <HomePageTemplate home={home} upcomingGame={upcomingGame} />
       </Layout>
     );
   }
@@ -182,8 +182,8 @@ export const pageQuery = graphql`
               image
               imageAlt
             }
-            upcomingMeetupHeading
-            noUpcomingMeetupText
+            upcomingGameHeading
+            noUpcomingGameText
             mapsNote
             callToActions {
               firstCTA {
