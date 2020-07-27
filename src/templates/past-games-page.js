@@ -10,7 +10,7 @@ import Layout from "../components/Layout";
 import HTMLContent from "../components/Content";
 import "../styles/past-games-page.scss";
 
-export const PastGamePageTemplate = ({
+export const PastGamesPageTemplate = ({
   title,
   content,
   games = null,
@@ -38,7 +38,7 @@ export const PastGamePageTemplate = ({
   );
 };
 
-PastGamePageTemplate.propTypes = {
+PastGamesPageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string,
   games: PropTypes.array,
@@ -65,7 +65,7 @@ const PastGamesPage = ({ data }) => {
         <meta name="description" content={seoDescription} />
         <title>{browserTitle}</title>
       </Helmet>
-      <PastGamePageTemplate
+      <PastGamesPageTemplate
         title={page.frontmatter.title}
         content={page.html}
         games={games}

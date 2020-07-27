@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { PastMeetupsPageTemplate } from "../../templates/past-meetups-page";
+import { PastGamesPageTemplate } from "../../templates/past-games-page";
 
-const PastMeetupsPagePreview = ({ entry, widgetFor }) => {
+const PastGamesPagePreview = ({ entry, widgetFor }) => {
   return (
-    <PastMeetupsPageTemplate
+    <PastGamesPageTemplate
       title={entry.getIn(["data", "title"])}
       content={entry.getIn(["data", "body"])}
       bodyIsMarkdown={true}
@@ -12,11 +12,11 @@ const PastMeetupsPagePreview = ({ entry, widgetFor }) => {
   );
 };
 
-PastMeetupsPagePreview.propTypes = {
+PastGamesPagePreview.propTypes = {
   entry: PropTypes.shape({
     getIn: PropTypes.func,
   }),
   widgetFor: PropTypes.func,
 };
 
-export default PastMeetupsPagePreview;
+export default PastGamesPagePreview;
