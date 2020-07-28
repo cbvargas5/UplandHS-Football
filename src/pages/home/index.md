@@ -14,15 +14,14 @@ callToActions:
     linkURL: /games
     subHeading: Look at what topics were presented at past games.
   secondCTA:
-    heading: Volunteer to Present
+    heading: Contact the UHS Team
     linkType: external
-    linkURL: 'mailto:contact@js-wakanda.org'
+    linkURL: 'mailto:darryl_thomas@upland.k12.ca.us'
     subHeading: Want to present at an upcoming game? Contact us.
 seo:
-  browserTitle: JS Wakanda
+  browserTitle: Upland High School Football | UHS Football
   description: >-
-    JavaScript game group in Wakanda where JavaScript developers get together
-    for presentations and to meet others in the community.
-  title: JavaScript Wakanda
+    Central Hub for all things Upland High School Football.  Go Scots!
+  title: UHS Football
 ---
 
