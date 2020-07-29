@@ -1,13 +1,22 @@
 ---
 templateKey: navbar
 menuItems:
-  - label: home
+  - label: Home
     linkType: internal
     linkURL: /
-  - label: about
+  - label: Scots
     linkType: internal
     linkURL: /about
-  - label: past games
+  - label: Schedule
+    linkType: internal
+    linkURL: /games
+  - label: Booster Club
+    linkType: internal
+    linkURL: /games
+  - label: Senior's Page 
+    linkType: internal
+    linkURL: /games
+  - label: Sponsors
     linkType: internal
     linkURL: /games
 ---
