@@ -57,6 +57,7 @@ export const HomePageTemplate = ({ home, upcomingGame = null }) => {
               )}
               <p className="upcomingGame-mapNote">{home.mapsNote}</p>
               <div className="upcomingGame-mapWrapper">
+                {/* Change from Map Component to Sponsor/ad/support component */}
                 <Map
                   isMarkerShown
                   googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTxauB_VWpo0_8hWELlE3pN59uuHzxD-8&v=3.exp&libraries=geometry,drawing,places"
